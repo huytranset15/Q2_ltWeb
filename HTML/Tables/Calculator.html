@@ -15,7 +15,7 @@
 			  background-color: #FFB6C1	;
 			  width: 295px;
 			  max-width: 295px;
-			  height: 325px;
+			  height: 350px;
 			  text-align: center;
 			  border-radius: 4px;
 			  padding-right: 10px;
@@ -43,6 +43,10 @@
 			  background-color: #bcbd95;
 			  float: left;
 			}
+		#AllClear{
+			width: 275px;
+			text-align: center;
+		}	
 	</style>
    </head>
    <body>
@@ -76,6 +80,11 @@
                <td><input type="button" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
                <td><input type="button" name="doit" value="=" onclick="calculator.display.value = eval(calculator.display.value)"></td>
                <td><input type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
+            </tr>
+            <tr>
+            	<td colspan="4">
+            		<input type="button" id="AllClear" name="AllClear" value="AC" onclick="calculator.display.value = ''">
+            	</td>
             </tr>
          </table>
       </form>

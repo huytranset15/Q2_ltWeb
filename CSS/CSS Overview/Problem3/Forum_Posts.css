@@ -1,0 +1,28 @@
+body{
+    background-color: silver;
+}
+h1{
+    color: LightYellow;
+    text-align: center;
+}
+ul {
+    text-align: center;
+}
+li {
+    display: block;
+}
+.current{
+    background-color: Gainsboro;
+    text-decoration: none;
+}
+.no_underline{
+    text-decoration: none;
+  }
+.white-letters a{
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+footer a{
+text-decoration: none;
+color: black;
+}
