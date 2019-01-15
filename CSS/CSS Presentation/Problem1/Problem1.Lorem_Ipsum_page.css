@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "Edwardian Script";
+    src: url(path/to/the/font);
+}
+body{
+    background-color: white;
+    }
+	p{
+		color: #0094ff;
+		
+	}
+    p::first-line {
+     color: #0094ff;
+	 font-family: Consolas, monaco, monospace;
+    }
+	p::first-letter {
+	  font-size: 200%;
+	  color: #0094ff;
+	  font-family: BentonSansRE, Verdana, sans-serif;
+    }

@@ -1,0 +1,10 @@
+body{
+    width: 90%;
+  
+  }
+  div{
+    background-color:#000000 ;
+    border: 1px solid #ff0000;
+    width: 95%;
+    border-radius: 50em;
+  }
