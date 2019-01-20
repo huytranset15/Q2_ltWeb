@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script language = 'javascript'>
+    
+   function show_result()
+    {
+        var input = document.getElementById("number").value;
+        input = input /100;
+        input = parseInt(input%10);
+        var div = document.getElementById("result");
+        div.innerHTML = input.value;
+        if(input == ""){
+            alert("You forget to input a number.")
+        }else{
+        if(input == 7){
+            div.innerHTML = ("True");
+        }else{
+            div.innerText = ("False "+input);
+        }
+      }
+    }
+    </script>
+    <input id="number" value=""/>
+    <br/>
+    <button id="myBtn" onclick="show_result()">Show result</button>
+    <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script language = 'javascript'>
+    
+   function show_result()
+    {
+        var input = document.getElementById("number").value;
+        input = input / 8;
+        input = parseInt(input% 2);
+        var div = document.getElementById("result");
+        div.innerHTML = input.value;
+        if(input == ""){
+            alert("You forget to input a number.")
+        }else{
+         div.innerHTML = (input);
+      }
+    }
+    </script>
+    <input id="number" value=""/>
+    <br/>
+    <button id="myBtn" onclick="show_result()">Show result</button>
+    <div id="result"></div>
+</body>
+</html>

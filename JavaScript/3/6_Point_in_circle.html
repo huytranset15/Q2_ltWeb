@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script language = 'javascript'>
+    
+   function show_result()
+    {
+        var inputX = document.getElementById("x").value;
+        var inputY = document.getElementById("y").value;
+        
+        var C = Math.sqrt(Math.pow(inputX, 2) + Math.pow(inputY, 2));
+        var div = document.getElementById("result");
+        
+        if(C <= 2){
+            div.innerText = ("yes " + C);
+        }else{
+         div.innerText = ("No " + C);
+               }
+    }
+    </script>
+    <input id="x" value="" placeholder="insert x" />
+    <input id="y" value="" placeholder="insert y" />
+    <br/>
+    <button id="myBtn" onclick="show_result()">Show result</button>
+    <div id="result"></div>
+</body>
+</html>

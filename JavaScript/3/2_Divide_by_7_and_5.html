@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script language = 'javascript'>
+    
+   function show_result()
+    {
+        var input = document.getElementById("number").value;
+        var div = document.getElementById("result");
+        div.innerHTML = input.value;
+        if(input == ""){
+            alert("You forget to input a number.")
+        }else{
+        if(input % 7 == 0 && input % 5 == 0){
+            div.innerHTML = (input +" is true number")
+        }else{
+            div.innerText = (input +" is false number")
+        }
+      }
+    }
+    </script>
+    <h1>Input a number can be divided by 7 and 5 without remainder</h1>
+    <input id="number" value=""/>
+    <br/>
+    <button id="myBtn" onclick="show_result()">Show result</button>
+    <div id="result"></div>
+</body>
+</html>

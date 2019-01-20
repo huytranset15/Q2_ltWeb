@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script language = 'javascript'>
+    
+   function show_result()
+    {
+        var input = document.getElementById("number").value;
+        var div = document.getElementById("result");
+        div.innerHTML = input.value;
+        if(input == ""){
+            alert("You forget to input a number.")
+        }else{
+        if(input % 2 == 0){
+            div.innerHTML = (input +" is an even number")
+        }else{
+            div.innerText = (input +" is an odd number")
+        }
+      }
+    }
+    </script>
+    <input id="number" value=""/>
+    <br/>
+    <button id="myBtn" onclick="show_result()">Show result</button>
+    <div id="result"></div>
+</body>
+</html>
