@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        function show_result() {
+            var a =parseFloat( document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var h = parseFloat(document.getElementById("h").value);
+            var area =parseFloat( 0.5 * h * (a + b));
+            document.getElementById("result").innerText = (area).toFixed(7);
+        }
+
+    function dientichinhthang(a b h){
+         var area =parseFloat( 0.5 * h * (a + b));
+         return area;
+}
+
+
+    </script>
+    <input type="text" id="a" placeholder="canh a" />
+    <br />
+    <input type="text" id="b" placeholder="canh b" />
+    <br />
+    <input type="text" id="h" placeholder="chieu cao" />
+    <br />
+    <button onclick="show_result()">Show result</button>
+    <div id="result"></div>
+
+
+</body>
+</html> 

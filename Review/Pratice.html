@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="C:/Users/huy49/Documents/GitHub/Q2_ltWeb/sample.js">
+     
+</script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 600px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.Main-content {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 50%; /* only for demonstration, should be removed */
+}
+.Detail-content {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: pink;
+  height: 505; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>Header</h2>
+</header>
+
+<section >
+        <nav>
+            <ul id="category">
+                <li><a href="#Phone" data-category="Phone">Phone</a></li>
+                <li><a href="#Desktop" data-category="Desktop">Desktop</a></li>
+                <li><a href="#Laptop" data-category="Laptop">Laptop</a></li>
+                <li><a href="#Camera" data-category="Camera">Camera</a></li>
+            </ul>
+        </nav> 
+
+  <article class="Main-content">
+    <h1>Main</h1>
+    <table id="products" border="1">
+      <thead>
+          <tr>
+              <td>#</td>
+              <td>code</td>
+              <td>category</td>
+              <td>name</td>
+              <td>description</td>
+              <td>price</td>
+              <td>link</td>
+          </tr>
+      </thead>
+      <div id=""></div>
+      <tbody></tbody>
+  </table>
+  </article>
+  <article class="Detail-content">
+    <h1>Detail</h1>
+    <div class="col-sm-9">
+      <div id="itemdetail" class="editForm">
+          <div>
+              <label>Product code: </label><input type="text" name="code" id="code" />
+          </div>
+          <div>
+              <label>Product name: </label><input type="text" name="name" id="name"/>
+          </div>
+          <div>
+              <label>Category: </label>
+              <select name="category">
+                  <option value="">Category</option>
+                  <option value="Phone">Phone</option>
+                  <option value="Desktop">Desktop</option>
+                  <option value="Laptop">Laptop</option>
+                  <option value="Camera">Camera</option>
+              </select>
+          </div>
+          <div>
+              <label>Price: </label><input type="text" name="price" id="price"  />
+          </div>
+          <div>
+              <label>Link: </label><input type="text" name="link" id="link" />
+          </div>
+          <div>
+              <label>Description: </label><textarea name="description" id="description" rows="4" cols="50" ></textarea>
+          </div>
+            <button id="BtnAdd">Add</button>
+              <button id="BtnSave">Save</button>
+              <button id="BtnDel">Delete</button>
+         
+      </div>
+  </div>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+</html>

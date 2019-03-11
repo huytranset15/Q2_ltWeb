@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <script>
+        ///1 
+        function Planar_coordinates(_array) {
+            var _arr = [];
+            for (var i = 0; i < _array.length; i++) {
+                parseFloat(_array[i]);
+            }
+
+            for (var i = 0; i < _array.length; i += 4) {
+                var x1 = parseFloat(_array[i]);
+                var y1 = parseFloat(_array[i + 1])
+                var x2 = parseFloat(_array[i + 2])
+                var y2 = parseFloat(_array[i + 3])
+                var a = parseFloat(Math.pow((x1 - x2), 2));
+                var b = parseFloat(Math.pow((y1 - y2), 2));
+                var d = parseFloat(Math.sqrt(a + b));
+                console.log(d.toFixed(2));
+                _arr.push(d);
+            }
+            if (_arr[0] + _arr[1] > _arr[2] && _arr[1] + _arr[2] > _arr[0] && _arr[0] + _arr[2] > _arr[1]) {
+                console.log("Triangle can be formed");
+            }
+            else console.log("Triangle can't be formed")
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 30%;
+            height: 470px;
+            background: #ccc;
+            padding: 20px;
+        }
+
+            /* Style the list inside the menu */
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+        .main-content {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            background-color: white;
+            height: 50; /* only for demonstration, should be removed */
+        }
+
+        .detail-content {
+            padding-top: 20px;
+            background-color: pink;
+            width: 100%;
+        }
+
+        /* Clear floats after the columns */
+        section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: gray;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 70px;
+        }
+    </style>
+    <script>
+        Class = function(id, name){
+            this.id = id;
+            this.name = name;
+            this.students = [];
+        }
+
+        Class.prototype.addStudents = function(student){
+           
+        }
+
+        Student = function (id, fullname, birthday, address) {
+            this.id = id;
+            this.fullname = fullname;
+            this.birthday = birthday;
+            this.address = address;
+        }
+
+      
+        var students = [
+        new Student('001','Nguyễn Tiến Đức','4/3/1997', 'Bình Dương'),
+        new Student('002','Trần Nguyễn Quang Huy','4/9/1997','Bình Dương'),
+        new Student('003','Trương Nguyễn Hoài Quang','unknow','Dĩ An'),
+        new Student('004','Huỳnh Minh Huy','unknow ','Bình Dương'   ),
+        new Student('005','Trần Vĩnh Thiện Phúc','unknow ','Quận 8'),
+        ];
+        var classes = [
+            new Class('1' , 'Class 1', [students[0], students[1], students[2]]),
+            new Class ('2' , 'Class 2', [students[2], students[3], students[4]]),
+            new Class ('3' , 'Class 3', [students[1], students[2], students[3]]),
+        ];
+
+        //khoi tao ham cho chay ; Cach 1
+
+        function intiateClasses(){
+            var html = classes.map((classx, index) => `<li data-id="${classx.id}">
+                                 <a>${classx.id}</a>
+                                 <a>${classx.name}</a>
+                         </li>`).join('\r\n');
+            $('ul#category').html(html);
+        }
+
+        function initiateItems() {
+            var html = students.map((student, index) => `<tr data-id="${student.id}">
+                                <td>${index + 1}</td>
+                                <td>${student.id}</td>
+                                <td>${student.fullname}</td>
+                                <td>${student.birthday}</td>
+                                <td>${student.address}</td>
+                        </tr>`).join('\r\n');
+                        $('#students tbody').html(html);
+
+        }
+        function clear(){
+            document.getElementById('id').value = '';
+            document.getElementById('fullname').value = '';
+            document.getElementById('birthday').value = '';
+            document.getElementById('address').value = '';
+        }
+
+        function showAllProducts(students) {
+            var html = students.map((student, index) => `<tr data-id="${student.id}">
+                                <td>${index + 1}</td>
+                                <td>${student.id}</td>
+                                <td>${student.fullname}</td>
+                                <td>${student.birthday}</td>
+                                <td>${student.address}</td>
+                        </tr>`).join('\r\n');
+            $('#products tbody').html(html);
+
+        }
+        $(intiateClasses);
+        $(initiateItems);
+        var currentCategory = 0;
+        $(function () {
+
+            $('#category').on('click', 'a', function () {
+                document.getElementById('id').readOnly = true;
+                var category = $(this).attr('data-id');
+                currentCategory = category;
+                var selectedProducts = students.filter(student => student.category === category);
+                showAllProducts(selectedProducts);
+            });
+
+            $('#products').on('click', 'tbody tr', function (evt) {
+                document.getElementById('id').readOnly = true;
+                var id = $(this).attr('data-id');
+                var student = students.find(student => student.id == id);
+                $('#itemdetail input , #itemdetail select, #itemdetail textarea').each(function(){
+                    var name = $(this).attr('name');
+                    $(this).val(student[name]);
+                });
+            });
+
+            $('#buttonSave').click(function(){
+                var student = {};
+                $('#itemdetail input , #itemdetail select, #itemdetail textarea').each(function(){
+                    var name = $(this).attr('fullname');
+                    student[name] = $(this).val();
+                });
+                var index = students.findIndex(x => x.id === student.id);
+                students[index] = student;
+                var selectedProducts = students.filter(student =>currentCategory == '' || student.subject === currentCategory );
+                showAllProducts(selectedProducts);
+                clear();
+            });
+
+            $('#buttonAdd').click(function(){
+                var student = {};
+                $('#itemdetail input , #itemdetail select, #itemdetail textarea').each(function(){
+                    var name = $(this).attr('fullname');
+                    student[name] = $(this).val();
+                });
+                if(students.find(x => x.code === student.code ) == null){
+                    students.push(student);
+                }
+                else {
+                    alert("Error!");
+                }
+                showAllProducts(students);
+                clear();
+            });
+            $('#buttonDelete').click(function(){
+                var student = {};
+                $('#itemdetail input , #itemdetail select, #itemdetail textarea').each(function(){
+                    var name = $(this).attr('fullname');
+                    student[name] = $(this).val();
+                });
+                var index = students.findIndex(x => x.id === student.id);
+                students.splice(index, 1);
+                var selectedProducts = students.filter(student =>currentCategory == '' || student.subject === currentCategory );
+                showAllProducts(selectedProducts);
+                clear();
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <header>
+        <h2>Quang Huy</h2>
+    </header>
+    <section>
+        <nav>
+            <div class="col-sm-3 sidenav">
+                <ul id="category"></ul>
+            </div>
+        </nav>
+        <div class="col-sm-9 main-content">
+            <div class="row">
+                <div class="col-sm-9">
+                    <table id="students" border="1">
+                        <colgroup>
+                            <col span="2" style="width:100px"/>
+                            <col span="1" style="width:200px" />
+                            <col span="3" style="width:100px" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="text-center">STT</th>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Fullname</th>
+                                <th class="text-center">Birthday</th>
+                                <th class="text-center">Address</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center"></tbody>
+                    </table>
+                </div>
+                <div class="col-sm-9 detail-content">
+                    <div id="itemdetail" class="editForm">
+                        <table style="border-spacing: 10px">
+                            <tbody>
+                                <tr>
+                                    <td><label>Student ID: </label></td>
+                                    <td><input type="text" name="id" id="id" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label>FullName: </label></td>
+                                    <td><input type="text" name="fullname" id="fullname" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Birthday: </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="birthday" id="birthday" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Address: </label></td>
+                                    <td><textarea name="address" rows="4" cols="50" id="address" /></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn">
+                            <button name="buttonSave" id="buttonSave">Save</button>
+                            <button name="buttonAdd" id="buttonAdd">Add</button>
+                            <button name="buttonDelete" id="buttonDelete">Delete</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+</body>
+</html>

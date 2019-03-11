@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <script>
+        ///1 Increase array members
+
+        function Increase_array_members(_array) {
+            var s = 0;
+            for (var i = 0; i < _array[0]; i++) {
+                console.log(s);
+                s += 5;
+            }
+        }
+        //02. Lexicographically comparison
+        function Lexicographically_comparison(_array) {
+            var a = _array[0];
+            var b = _array[1];
+            if (a.length > b.length) {
+                console.log('>');
+            }
+            if (b.length > a.length) {
+                console.log('<');
+            } if (b.length === a.length) {
+                console.log('=');
+            }
+        }
+        //3
+        function Maximal_sequence(_array) {
+            for (var i = 0; i < _array.length; i++) {
+                parseInt(_array[i]);
+            }
+            _array.shift();
+            _array.sort(function (a, b) {
+                return a - b;
+            });
+            return _array[_array.length - 1];
+        }
+        //4
+        function Maximal_increasing_sequence(_array) {
+            for (var i = 0; i < _array.length; i++) {
+                parseFloat(_array[i]);
+            }
+            _array.shift();
+            var max = 1;
+            for (var i = 0; i < _array.length; i++) {
+                var count = 0;
+                for (var j = 0; j < _array.length; j++) {
+                    if (_array[i] == _array[j]) {
+                        count++;
+                    }
+                }
+                if (count > max)
+                    max = count;
+            }
+            return max;
+        }
+        //5 selectionSort
+        function selectionSort(array) {
+            for (var i = 0; i < array.length; i++) {
+                parseFloat(array[i]);
+            }
+            array.shift();
+            for (var i = 0; i < array.length; i++) {
+                var min = i;
+                for (var j = i + 1; j < array.length; j++) {
+                    if (array[j] < array[min]) {
+                        min = j;
+                    }
+                }
+                var temp = array[i];
+                array[i] = array[min];
+                array[min] = temp;
+            }
+            for (var k = 0; k < array.length; k++) {
+                console.log(array[k]);
+            }
+
+        };
+        //6 
+        function Frequent_number(_array) {
+            for (var i = 0; i < _array.length; i++) {
+                parseFloat(_array[i]);
+            }
+            _array.shift();
+            var max = 1;
+            var number = 0;
+            for (var i = 0; i < _array.length; i++) {
+                var count = 0;
+                for (var j = 0; j < _array.length; j++) {
+                    if (_array[i] == _array[j]) {
+                        count++;
+
+                    }
+                }
+                if (count > max) {
+                    max = count;
+                    number = _array[i];
+                }
+            }
+            console.log(number + '(' + max + ' times' + ')');
+        }
+        //7 
+        function binarySearch(_array) {
+            for (var i = 0; i < _array.length; i++) {
+                parseFloat(_array[i]);
+            }
+            _array.shift();
+            var value = _array[_array.length - 1];
+            _array.pop();
+            let start = 0
+            let stop = _array.length - 1
+            let middle = Math.floor((start + stop) / 2)
+
+            while (_array[middle] !== value && start < stop) {
+                if (value < _array[middle]) {
+                    stop = middle - 1
+                } else {
+                    start = middle + 1
+                }
+
+                middle = Math.floor((start + stop) / 2)
+            }
+            
+            return middle;
+           
+        }
+        //10 Prime numbers
+        function Prime_numbers(s){
+            var max = 0;
+            for(var i = 2; i <= s; i++){
+                var count = 0;
+                for(var j = 1; j <= Math.sqrt(i); j++){
+                    if(i % j == 0){
+                        count++;
+                    }
+                }
+                if(count == 1){
+                    max = i;
+                }
+            }
+            return max;
+        }
+
+
+    </script>
+</body>
+
+</html>

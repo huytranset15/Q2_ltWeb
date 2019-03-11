@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        ///1
+        
+        function number1toN(array){
+            var a = +(array[0]);
+            var str = '';
+            for(var i = 1; i <= a; i++){
+             str += i + ' ';
+            }
+            return str;
+        }
+//2
+        function MMSA(_array){
+            var min = +(_array[0]);
+            var max = +(_array[0]);
+            var sum = 0;
+            var avg = 0;
+            var l = _array.length;
+            
+            for(var i =0; i <l;i++){
+                
+                if(min > _array[i]){
+                    min = _array[i];
+                }
+                if(max < _array[i]){
+                   max = _array[i];
+               }
+               sum += _array[i];
+            }
+            avg = Math.round((sum/l)*100)/100 ;
+            console.log('min=' + min+ "\n"+'max = ' + max + "\n" +"sum= " +sum +"\n"+"avg= "+avg);
+        }
+//3
+        function Matrix_of_Numbers(_array){
+            var a = parseInt(_array[0]);
+             for(var i = 0; i< a; i++){
+                 for(var j =0 ; j< a;j++){
+                     
+                 }
+             }    
+        
+        }
+//4
+function hexToDec(array) {
+    var i, j, digits = [0], carry;
+    for (i = 0; i < array[0].length; i += 1) {
+        carry = parseInt(array[0].charAt(i), 16);
+        for (j = 0; j < digits.length; j += 1) {
+            digits[j] = digits[j] * 16 + carry;
+            carry = digits[j] / 10 | 0;
+            digits[j] %= 10;
+        }
+        while (carry > 0) {
+            digits.push(carry % 10);
+            carry = carry / 10 | 0;
+        }
+    }
+    return digits.reverse().join('');
+}
+        </script>
+</body>
+</html>
